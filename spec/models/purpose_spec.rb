@@ -7,7 +7,7 @@ RSpec.describe Purpose, type: :model do
   describe 'testes de preenchimento dos campos do model Purpose' do
 
     it 'decision consegue ser preenchido?' do
-      @purpose.decision = ''
+      @purpose.decision = 'fazer 50 apis'
       expect(@purpose.decision).to eq('fazer 50 apis')
     end
 
