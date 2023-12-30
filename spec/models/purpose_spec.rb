@@ -28,7 +28,7 @@ RSpec.describe Purpose, type: :model do
 
     it 'objeto purpose invalido com campos obrigatorios não preenchidos?' do
       purpose = Purpose.new
-      expect(purpose).to be_valid
+      expect(purpose).to be_invalid
     end
 
   end  
