@@ -28,4 +28,13 @@ RSpec.describe Api::V1::PurposesController, type: :controller do
     end
   end
 
+  describe 'PATCH /api/v1/purposes/id' do
+    it 'Consegue atualizar um purpose e retornar status 200?' do
+      purpose = Purpose.last
+      patch :update, params: {purpose: {decision: 'ler rails 7', why: 'aprender mais'}, id: @purpose.id}
+      expect(response.body).to include_json(decision: 'ler rails 7')
+      expect(response).to have_http_status(200)
+    end
+  end
+
 end
