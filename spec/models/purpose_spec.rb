@@ -18,4 +18,6 @@ RSpec.describe Purpose, type: :model do
 
   end
 
+  
+
 end
