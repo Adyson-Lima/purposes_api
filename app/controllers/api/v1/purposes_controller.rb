@@ -1,6 +1,6 @@
 class Api::V1::PurposesController < ApplicationController
 
-  before_action :set_purpose, only: %i[show update] # show update destroy
+  before_action :set_purpose, only: %i[show update destroy] # show update destroy
 
   def index
     @purposes = Purpose.all 
@@ -26,6 +26,10 @@ class Api::V1::PurposesController < ApplicationController
     else
       render json: @purpose.errors, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @purpose.destroy!
   end
 
 private 
