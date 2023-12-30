@@ -1,6 +1,6 @@
 class Api::V1::PurposesController < ApplicationController
 
-  before_action :set_purpose, only: %i[show] # show update destroy
+  before_action :set_purpose, only: %i[show update] # show update destroy
 
   def index
     @purposes = Purpose.all 
@@ -15,6 +15,14 @@ class Api::V1::PurposesController < ApplicationController
     @purpose = Purpose.new(purpose_params)
     if @purpose.save
       render json: @purpose, status: :created, location: api_v1_purpose_url(@purpose)
+    else
+      render json: @purpose.errors, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @purpose.update(purpose_params)
+      render json: @purpose
     else
       render json: @purpose.errors, status: :unprocessable_entity
     end
