@@ -37,4 +37,13 @@ RSpec.describe Api::V1::PurposesController, type: :controller do
     end
   end
 
+  describe 'DELETE /api/v1/purposes/id' do
+    it 'Consegue excluir um purpose e retornar status 204?' do
+      purpose = Purpose.last
+      delete :destroy, params: {id: purpose.id}
+      expect(Purpose.all).not_to include(purpose)
+      expect(response).to have_http_status(204)
+    end
+  end
+
 end
