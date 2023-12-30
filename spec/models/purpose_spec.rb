@@ -11,6 +11,11 @@ RSpec.describe Purpose, type: :model do
       expect(@purpose.decision).to eq('fazer 50 apis')
     end
 
+    it 'why consegue ser preenchido?' do
+      @purpose.why = ''
+      expect(@purpose.why).to eq('melhorar habilidades')
+    end
+
   end
 
 end
