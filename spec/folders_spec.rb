@@ -12,5 +12,8 @@ RSpec.describe 'testes de verificação de pastas do projeto' do
     expect(Dir.exist?('app/controllers/api')).to eq(true)
   end
   
+  it 'pasta app/controllers/api/v1 existe?' do
+    expect(Dir.exist?('app/controllers/api/v1')).to eq(true)
+  end
 
 end
