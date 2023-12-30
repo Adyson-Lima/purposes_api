@@ -12,4 +12,12 @@ RSpec.describe Api::V1::PurposesController, type: :controller do
     end
   end
 
+  describe 'GET /api/v1/purposes/id' do
+    it 'Consegue listar um purpose especifico e retornar status 200?' do
+      get :show, params: {id: @purpose.id}
+      expect(response.body).to include_json(id: @purpose.id)
+      expect(response).to have_http_status(200)
+    end
+  end
+
 end
