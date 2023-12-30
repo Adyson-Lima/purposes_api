@@ -11,6 +11,15 @@ class Api::V1::PurposesController < ApplicationController
     render json: @purpose
   end
 
+  def create
+    @purpose = Purpose.new(purpose_params)
+    if @purpose.save
+      render json: @purpose, status: :created, location: api_v1_purpose_url(@purpose)
+    else
+      render json: @purpose.errors, status: :unprocessable_entity
+    end
+  end
+
 private 
 
 def set_purpose
