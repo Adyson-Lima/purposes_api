@@ -12,12 +12,20 @@ RSpec.describe Purpose, type: :model do
     end
 
     it 'why consegue ser preenchido?' do
-      @purpose.why = ''
+      @purpose.why = 'melhorar habilidades'
       expect(@purpose.why).to eq('melhorar habilidades')
     end
 
   end
 
-  
+  describe 'testes de validação dos campos do model Purpose' do
+
+    it 'objeto purpose valido com campos obrigatorios preenchidos?' do
+      @purpose.decision = ''
+      @purpose.why = ''
+      expect(@purpose).to be_valid
+    end
+
+  end  
 
 end
