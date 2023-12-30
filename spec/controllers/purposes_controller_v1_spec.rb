@@ -20,4 +20,12 @@ RSpec.describe Api::V1::PurposesController, type: :controller do
     end
   end
 
+  describe 'POST /api/v1/purposes' do
+    it 'Consegue criar um purpose e retornar status 201?' do
+      post :create, params: {purpose: {decision: 'estudar angular', why: 'melhorar habilidades'}, format: :json}
+      expect(response.body).to include_json(decision: 'estudar angular')
+      expect(response).to have_http_status(201)
+    end
+  end
+
 end
