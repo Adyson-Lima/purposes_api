@@ -21,8 +21,8 @@ RSpec.describe Purpose, type: :model do
   describe 'testes de validação dos campos do model Purpose' do
 
     it 'objeto purpose valido com campos obrigatorios preenchidos?' do
-      @purpose.decision = ''
-      @purpose.why = ''
+      @purpose.decision = 'aprender react'
+      @purpose.why = 'juntar com Rails'
       expect(@purpose).to be_valid
     end
 
